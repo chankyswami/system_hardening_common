@@ -1,0 +1,32 @@
+---
+
+- name: Copy banner file
+  copy:
+    src: banner.txt
+    dest: /etc/issue
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Ensure banner is configured in sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?Banner'
+    line: 'Banner /etc/issue'
+
+- name: Enable RSAAuthentication in sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?RSAAuthentication'
+    line: 'RSAAuthentication yes'
+
+- name: Enable Kerbores Authentication in sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?KerberosAuthentication'
+    line: 'KerberosAuthentication yes'
+
+- name: Restart SSH service
+  service:
+    name: sshd
+    state: restarted

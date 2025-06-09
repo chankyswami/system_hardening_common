@@ -1,0 +1,10 @@
+---
+
+- name: Include NTP configuration
+  import_tasks: ntp.yml
+
+- name: Include Password policy configuration
+  import_tasks: password_policy.yml
+
+- name: Include Kerberos, RSA, Banner configuration
+  import_tasks: kerberos_rsa_banner.yml

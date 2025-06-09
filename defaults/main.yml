@@ -1,0 +1,9 @@
+ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+password_minlen: 8
+password_maxlen: 16
+kerberos_authentication: yes
+rsa_auth: yes
+banner: "/etc/issue"
+banner_text: "Authorized access only. All activity may be monitored and reported."

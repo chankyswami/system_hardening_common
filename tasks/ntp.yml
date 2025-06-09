@@ -1,0 +1,15 @@
+---
+- name: Configure NTP servers block in ntp.conf
+  ansible.builtin.blockinfile:
+    path: /etc/ntp.conf
+    marker: "# {mark} ANSIBLE MANAGED NTP SERVERS"
+    block: |
+      {% for server in ntp_servers %}
+      server {{ server }} iburst
+      {% endfor %}
+
+- name: Ensure NTP service is enabled and running
+  ansible.builtin.service:
+    name: ntpd
+    enabled: yes
+    state: started
