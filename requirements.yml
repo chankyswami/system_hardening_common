@@ -1,0 +1,4 @@
+roles:
+  - src: git+https://github.com/chankyswami/system_hardening_common.git
+    name: system_hardening_common
+    version: master
