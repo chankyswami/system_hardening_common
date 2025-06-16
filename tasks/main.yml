@@ -2,9 +2,12 @@
 
 - name: Include NTP configuration
   import_tasks: ntp.yml
+  tags: ntp
 
 - name: Include Password policy configuration
   import_tasks: password_policy.yml
+  tags: password_policy
 
 - name: Include Kerberos, RSA, Banner configuration
   import_tasks: kerberos_rsa_banner.yml
+  tags: k_r_b
