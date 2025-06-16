@@ -1,0 +1,7 @@
+---
+- name: Run only NTP tasks
+  hosts: all
+  become: true
+  roles:
+    - role: system_hardening_common
+      tags: ntp
